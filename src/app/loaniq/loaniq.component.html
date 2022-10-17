@@ -1,0 +1,21 @@
+
+<div class="text-primary">LOANIQ Training and certification</div>
+<div class="text-center">
+    <div class="list-group-numbered">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>TrainingID</th>
+          <th>Course</th>
+          <th>Trainer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr (click)="onSelect(technology)" *ngFor="let technology of technologies">
+            <td>{{technology.tid}}</td>
+            <td>{{technology.coursename}}</td>
+            <td>{{technology.trainer}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>

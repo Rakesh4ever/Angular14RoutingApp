@@ -1,0 +1,34 @@
+
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+  <a class="navbar-brand" > ACS </a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="about" routerLinkActive="active">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="services" routerLinkActive="active">Services</a>
+      </li>
+      
+      <!-- Dropdown-->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" routerLink='' routerLinkActive="active" id="navbar-drop" data-toggle="dropdown">Training</a>
+        <div class="dropdown-menu" >
+          <a class="dropdown-item" routerLink="loaniq" routerLinkActive="active">LoanIQ</a>
+          <a class="dropdown-item" routerLink="condor" routerLinkActive="active">Condor</a>
+          <a class="dropdown-item"  routerLink="ffc" routerLinkActive="active">FFC</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="contacts" routerLinkActive="active">Contacts</a>
+      </li>
+    </ul>
+</nav>
+<br>
+
+<!-- For Single page application below tag is neccessary -->
+<router-outlet></router-outlet>
+
+
