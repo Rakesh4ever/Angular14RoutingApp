@@ -15,6 +15,6 @@ export class ContactsComponent implements OnInit {
 
   trainings=['LoanIQ','Condore','FFC','Azure Cloud'];
 
-  enquiry1=new Enquiry('Rakesh','rakesh@gmail.com','LoanIQ',9500000000)
+  enquiry1=new Enquiry('','','',0)
 
 }

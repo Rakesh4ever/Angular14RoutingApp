@@ -1,6 +1,6 @@
 <p class="text-primary">contacts Us</p>
 
-<form  #enquiry='ngForm' action="" method="post">
+<form class="form-center" #enquiry='ngForm' action="" method="post">
     <h2>{{enquiry.value | json}}</h2>  
     
     <h2>{{enquiry1 |json}}</h2>
@@ -8,20 +8,21 @@
     <div class="form-group">
         <label>Name</label>
       <!--  <input name='name' ngModel class="form-control"> --> <!-- Performing DATA BINDING USING ngModel-->
-        <input name='name' [(ngModel)]="enquiry1.name" class="form-control">  <!-- Performing  TWO WAY DATA BINDING USING ngModel-->
+        <input  name='name'  [(ngModel)]="enquiry1.name"   #name="ngModel" required [class.is-invalid]="name.invalid && name.touched" class="form-control">  <!-- Performing  TWO WAY DATA BINDING USING ngModel-->
     </div>
+
     <div class="form-group">
         <label>Email</label>
       <!--  <input name='email' ngModel class="form-control"> --> <!-- Performing DATA BINDING USING ngModel-->
-        <input name='email' [(ngModel)]="enquiry1.email" class="form-control">  <!-- Performing TWO WAY DATA BINDING USING ngModel-->
+        <input name='email' [(ngModel)]="enquiry1.email"  #email="ngModel" required [class.is-invalid]="email.invalid && email.touched" class="form-control">  <!-- Performing TWO WAY DATA BINDING USING ngModel-->
         
     </div>
 
     <div class="form-group">
         <label>Training</label>
       <!--  <select name="Tcourse" ngModel class="form-control"> --> <!-- Performing DATA BINDING USING ngModel-->
-            <select name="Tcourse" [(ngModel)]="enquiry1.Tcourse" class="form-control">  <!-- Performing TWO WAY DATA BINDING USING ngModel-->
-            <option>--Select Training Course</option>
+            <select name="Tcourse" [(ngModel)]="enquiry1.Tcourse"  #Tcourse="ngModel" required [class.is-invalid]="Tcourse.invalid && Tcourse.touched" class="form-control">  <!-- Performing TWO WAY DATA BINDING USING ngModel-->
+            <option value="">--Select Training Course</option>
             <option *ngFor="let training of trainings">{{training}}</option>
         </select>
     </div>
@@ -29,7 +30,7 @@
     <div class="form-group">
         <label>Mobile</label>
        <!-- <input  name='mobile' ngModel class="form-control"> --> <!-- Performing DATA BINDING USING  ngModel-->
-        <input  name='mobile' [(ngModel)]="enquiry1.mobile" class="form-control">  <!-- Performing TWO WAY DATA BINDING USING  ngModel-->
+        <input  name='mobile' [(ngModel)]="enquiry1.mobile" #mobile="ngModel" required [class.is-invalid]="mobile.invalid && mobile.touched" class="form-control">  <!-- Performing TWO WAY DATA BINDING USING  ngModel-->
     </div>
     <button class="btn btn-success">Submit</button>
 </form>
