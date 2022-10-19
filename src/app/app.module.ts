@@ -13,6 +13,7 @@ import { LoaniqComponent } from './loaniq/loaniq.component';
 import { CondorComponent } from './condor/condor.component';
 import { FfcComponent } from './ffc/ffc.component';
 import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CoursedetailsComponent } from './coursedetails/coursedetails.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

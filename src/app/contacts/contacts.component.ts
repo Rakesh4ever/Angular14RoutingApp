@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Enquiry } from '../enquiry';
 
 @Component({
   selector: 'app-contacts',
@@ -12,6 +13,8 @@ export class ContactsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  trainings=['LoanIQ','Condore','FFC'];
+  trainings=['LoanIQ','Condore','FFC','Azure Cloud'];
+
+  enquiry1=new Enquiry('Rakesh','rakesh@gmail.com','LoanIQ',9500000000)
 
 }
