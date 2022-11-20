@@ -14,6 +14,7 @@ import { CondorComponent } from './condor/condor.component';
 import { FfcComponent } from './ffc/ffc.component';
 import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

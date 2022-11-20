@@ -10,6 +10,7 @@ import { LoaniqComponent } from './loaniq/loaniq.component';
 import { CondorComponent } from './condor/condor.component';
 import { FfcComponent } from './ffc/ffc.component';
 import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
+
 const routes: Routes = [
   {path:'', redirectTo:'/home', pathMatch:'full'},
   {path:'home',component:HomeComponent},

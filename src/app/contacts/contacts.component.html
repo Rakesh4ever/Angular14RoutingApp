@@ -1,36 +1,62 @@
 <p class="text-primary">contacts Us</p>
 
-<form class="form-center" #enquiry='ngForm' action="" method="post">
-    <h2>{{enquiry.value | json}}</h2>  
-    
-    <h2>{{enquiry1 |json}}</h2>
+<form (ngSubmit)="submitForm()"  novalidate class="form-center" #enquiry='ngForm' action="" method="post">
+ <!--   <h2>{{enquiry.value | json}}</h2> 
+    <h2>{{enquiry1 |json}}</h2>  -->
 
     <div class="form-group">
         <label>Name</label>
+        <small class="text-danger" [class.d-none]="name.valid || name.untouched">  *Name is required</small>
       <!--  <input name='name' ngModel class="form-control"> --> <!-- Performing DATA BINDING USING ngModel-->
         <input  name='name'  [(ngModel)]="enquiry1.name"   #name="ngModel" required [class.is-invalid]="name.invalid && name.touched" class="form-control">  <!-- Performing  TWO WAY DATA BINDING USING ngModel-->
     </div>
 
     <div class="form-group">
+        <label>Gender</label>
+        <small class="text-danger" [class.d-none]="!hasGenderError || gender.untouched">  *Gender is required</small>
+      
+            <select name="gender"
+            (blur)="validateGender(gender.value)" (change)="validateGender(gender.value)"
+            [(ngModel)]="enquiry1.gender"  #gender="ngModel" required [class.is-invalid]="gender.invalid && gender.touched" class="form-control">  <!-- Performing TWO WAY DATA BINDING USING ngModel-->
+            <option value="default">--Select Gender --</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+    <div class="form-group">
         <label>Email</label>
+        <span *ngIf="email.errors&& (email.invalid&&email.touched)">
+             <small class="text-danger" *ngIf="email.errors['required']">* Email is required</small>
+             <small class="text-danger" *ngIf="email.errors['pattern']"> * Please enter valid email address</small>
+            
+       </span>
       <!--  <input name='email' ngModel class="form-control"> --> <!-- Performing DATA BINDING USING ngModel-->
-        <input name='email' [(ngModel)]="enquiry1.email"  #email="ngModel" required [class.is-invalid]="email.invalid && email.touched" class="form-control">  <!-- Performing TWO WAY DATA BINDING USING ngModel-->
+        <input name='email' pattern="^[a-zA-Z0-9._]+@[a-z0-9.]+\.[a-z]{2,4}$"
+          [(ngModel)]="enquiry1.email"  #email="ngModel" required [class.is-invalid]="email.invalid && email.touched" class="form-control">  <!-- Performing TWO WAY DATA BINDING USING ngModel-->
         
     </div>
 
     <div class="form-group">
         <label>Training</label>
+        <small class="text-danger" [class.d-none]="Tcourse.valid || Tcourse.untouched">  *Training course is required</small>
       <!--  <select name="Tcourse" ngModel class="form-control"> --> <!-- Performing DATA BINDING USING ngModel-->
             <select name="Tcourse" [(ngModel)]="enquiry1.Tcourse"  #Tcourse="ngModel" required [class.is-invalid]="Tcourse.invalid && Tcourse.touched" class="form-control">  <!-- Performing TWO WAY DATA BINDING USING ngModel-->
-            <option value="">--Select Training Course</option>
+            <option value="">--Select Training Course--</option>
             <option *ngFor="let training of trainings">{{training}}</option>
         </select>
     </div>
 
     <div class="form-group">
         <label>Mobile</label>
+       <span *ngIf="mobile.errors && (mobile.invalid && mobile.touched)">
+        <small class="text-danger" *ngIf="mobile.errors['required']"> *Mobile number required</small>
+        <small class="text-danger" *ngIf="mobile.errors['pattern']">Please enter valid mobile number</small>
+       </span>
        <!-- <input  name='mobile' ngModel class="form-control"> --> <!-- Performing DATA BINDING USING  ngModel-->
-        <input  name='mobile' [(ngModel)]="enquiry1.mobile" #mobile="ngModel" required [class.is-invalid]="mobile.invalid && mobile.touched" class="form-control">  <!-- Performing TWO WAY DATA BINDING USING  ngModel-->
+        <input  name='mobile' pattern="^\d{10}$"
+        [(ngModel)]="enquiry1.mobile" #mobile="ngModel" required [class.is-invalid]="mobile.invalid && mobile.touched" class="form-control">  <!-- Performing TWO WAY DATA BINDING USING  ngModel-->
     </div>
-    <button class="btn btn-success">Submit</button>
+    <!--you can add "hasTrainingCourseError" below if it is defined in Component class -->
+    <button [disabled]="enquiry.invalid || hasGenderError " class="btn btn-success">Submit</button> 
 </form>
